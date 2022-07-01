@@ -1,0 +1,34 @@
+{
+  "name": "Donaton",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Donate a ton"
+  },
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.twitter.com/",
+    "*://*.youtube.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "all_frames": false,
+      "run_at": "document_end"
+    }
+  ]
+}
